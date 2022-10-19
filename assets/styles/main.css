@@ -1,0 +1,100 @@
+:root {
+  --mainTitle: #d4ff2a;
+  --colorPositive: rgb(189, 188, 255);
+  --colorWarning: rgb(255, 208, 52);
+  --colorNegative: rgb(255, 107, 107);
+  --colorBackBoby: rgb(60, 60, 60);
+}
+
+body {
+  font-family: monospace;
+  margin: 0;
+  background-color: var(--colorBackBoby);
+  color: white;
+}
+body > .body__child {
+  padding: 0 1rem;
+}
+body h1, body h2, body h3, body h4 {
+  color: var(--mainTitle);
+}
+body .a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+body button {
+  border: var(--mainTitle) 2px outset;
+  background-color: transparent;
+  border-radius: 6px;
+  color: white;
+  padding: 0.25rem 0.6rem;
+  margin: 0.4rem 0;
+  font-weight: bold;
+}
+body button:hover {
+  background-color: rgba(212, 255, 42, 0.1450980392);
+}
+body button:active {
+  border-style: inset;
+}
+body header {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(46, 46, 46);
+  color: white;
+}
+body .vue {
+  display: none;
+}
+body .status_ok {
+  color: var(--colorPositive);
+}
+body .status_error {
+  color: var(--colorNegative);
+}
+body .status_warning {
+  color: var(--colorWarning);
+}
+body #vue_await > * {
+  margin: auto;
+  text-align: center;
+}
+body #vue_await .waitAnimation {
+  border-radius: 50%;
+  width: 200px;
+  aspect-ratio: 1/1;
+  -webkit-animation-name: waitAnimation;
+          animation-name: waitAnimation;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+body #vue_await .waitAnimation > div {
+  width: 100px;
+  aspect-ratio: 1/1;
+  background-color: var(--mainTitle);
+  border-top-left-radius: 100%;
+}
+
+@-webkit-keyframes waitAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes waitAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

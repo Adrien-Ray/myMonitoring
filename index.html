@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myMonitoring</title>
+    <link rel="shortcut icon" href="./assets/ico/ico.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/styles/main.css">
+</head>
+
+<body>
+    <header class="body__child">
+        <img src="./assets/ico/ico.svg" alt="">
+        <h1>myMonitoring v 0.2</h1>
+    </header>
+    <section class="body__child vue" id="vue_launch">
+        <button id="vue_launch_button_all">fetch all</button>
+        <!-- <button id="vue_launch_button_perso">fetch perso</button>
+        <button id="vue_launch_button_yupanki">fetch yupanki</button> -->
+        <button id="enter_url">fetch URL</button>
+        <button id="vue_reportReset">reset report</button>
+    </section>
+    <section class="body__child vue" id="vue_launch">
+    </section>
+    <section class="body__child vue" id="form_url">
+        <input type="text" name="" id="form_url_input" placeholder="enter url">
+        <button id="form_url_outpout">scanner</button>
+    </section>
+    <section class="body__child vue" id="vue_report">
+
+    </section>
+    <section class="body__child vue" id="vue_reportTime">
+
+    </section>
+    <section class="body__child vue" id="vue_await">
+        <h2>... please wait ...</h2>
+        <div class="waitAnimation">
+            <div></div>
+        </div>
+    </section>
+    <script>
+        async function testTime(url) {
+            document.getElementById('vue_await').style.display = 'block';
+            document.getElementById('vue_await').scrollIntoView({
+                block: 'start',
+                behavior: "smooth",
+            });
+
+            url = `{"url": "${url}"}`;
+            console.log('testTime', url);
+            const requestOptionsConn = {
+                method: 'POST',
+                body: url,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            };
+            fetch('http://localhost:8082/test/time', requestOptionsConn)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                    let loopReport = ``;
+                    let total = 0;
+                    for (let index = 0; index < data.testList.length; index++) {
+                        const element = data.testList[index];
+                        total += element;
+                        let theClass = '';
+                        if (element === -1 || element >= 1000) {
+                            theClass = 'error';
+                        } else if (element < 1000 && element >= 500) {
+                            theClass = 'warning';
+                        } else if (element >= 0 && element < 500) {
+                            theClass = 'ok';
+                        }
+                        loopReport = loopReport + `<li class="status_${theClass}">${element}</li>`;
+                    }
+                    let moyenne = total / data.nbrTest;
+                    loopReport = `<ul>${loopReport}</ul>`;
+                    document.getElementById('vue_reportTime').innerHTML = `${document.getElementById('vue_reportTime').innerHTML}
+                        <h2>vue_reportTime ${data.url}</h2>
+                        <p>nombre de tests: ${data.nbrTest}, total: ${total}ms, moyenne: ${moyenne}ms</p>
+                        ${loopReport}`;
+                    document.getElementById('vue_await').style.display = 'none';
+                    document.getElementById('vue_reportTime').style.display = 'block';
+                })
+                .catch((err) => {
+                    console.log(err);
+                    document.getElementById('vue_await').style.display = 'none';
+                });
+        }
+    </script>
+    <script type="module" src="./assets/scripts/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+:root{
+    --mainTitle: #d4ff2a;
+    --colorPositive: rgb(189, 188, 255);
+    --colorWarning: rgb(255, 208, 52);
+    --colorNegative: rgb(255, 107, 107);
+    --colorBackBoby: rgb(60, 60, 60);
+}
+
+body{
+    font-family: monospace;
+    margin: 0;
+    background-color: var(--colorBackBoby);
+    color: white;
+    >.body__child{
+        padding: 0 1rem;
+    }
+    h1, h2, h3, h4{
+        color: var(--mainTitle);
+    }
+    .a{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    button{
+        border: var(--mainTitle) 2px outset;
+        background-color: transparent;
+        border-radius: 6px;
+        color: white;
+        padding: 0.25rem 0.6rem;
+        margin: 0.4rem 0;
+        font-weight: bold;
+        &:hover{
+            background-color: #d4ff2a25;
+        }
+        &:active{
+            border-style: inset;
+        }
+    }
+    header{
+        display: flex;
+        justify-content: space-evenly;
+        background-color: rgb(46, 46, 46);
+        color: white;
+    }
+    .vue{
+        display: none;
+    }
+    .status_ok{
+        color: var(--colorPositive);
+    }
+    .status_error{
+        color: var(--colorNegative);
+    }
+    .status_warning{
+        color: var(--colorWarning);
+    }
+    #vue_await{
+        >*{
+            margin: auto;
+            text-align: center;
+        }
+        .waitAnimation{
+            // border-bottom: 10px solid var(--mainTitle);
+            border-radius: 50%;
+            width: 200px;
+            aspect-ratio: 1/1;
+            animation-name: waitAnimation;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            >div{
+                width: 100px;
+                aspect-ratio: 1/1;
+                background-color: var(--mainTitle);
+                border-top-left-radius: 100%;
+                // box-shadow: inset 50px -20px 50px var(--colorBackBoby);
+            }
+        }
+    }
+}
+
+@keyframes waitAnimation {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
