@@ -1,16 +1,16 @@
 import { vue } from "./modules/varStructure.js";
-import { jsonFetch } from "./modules/jsonFetch.js";
+import { jsonFetch, jsonFetch2 } from "./modules/jsonFetch.js";
 
 document.getElementById(vue.launch).style.display = 'block';
 document.getElementById('vue_launch_button_all').addEventListener('click', () => {
-    jsonFetch('all');
+    jsonFetch2('all');
 });
-document.getElementById('vue_launch_button_perso').addEventListener('click', () => {
+/* document.getElementById('vue_launch_button_perso').addEventListener('click', () => {
     jsonFetch('perso');
 });
 document.getElementById('vue_launch_button_yupanki').addEventListener('click', () => {
     jsonFetch('yupanki');
-});
+}); */
 document.getElementById('vue_reportReset').addEventListener('click', () => {
     document.getElementById('vue_report').style.display = 'none';
     document.getElementById('vue_await').style.display = 'none';
