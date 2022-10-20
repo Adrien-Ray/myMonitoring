@@ -36,11 +36,11 @@ async function jsonFetch(cat, url = true) {
 
 
 async function jsonFetch2(cat, url = true) {
-    console.log('enter in function jsonFetch2');
+    // console.log('enter in function jsonFetch2');
     document.getElementById('vue_report').style.display = 'none';
     document.getElementById('vue_reportTime').style.display = 'none';
     if (url !== true) {
-        console.log('in if of jsfetch', url);
+        // console.log('in if of jsfetch', url);
         const arrayToReturn = [{
             "name": "input url",
             "urls": [
@@ -60,9 +60,10 @@ async function jsonFetch2(cat, url = true) {
                 if (cat === "all") {
                     jsonFilter = json.domain;
                 } else {
+                    console.log('envoi catFilter: ', json, cat);
                     jsonFilter = catFilter(json, cat);
                 }
-                // console.log(jsonFilter);
+                // console.log('jsonFilter : ', jsonFilter);
                 jsonTest(jsonFilter);
             });
     }

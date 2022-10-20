@@ -1,3 +1,5 @@
+import { jsonFetch2 } from "./jsonFetch.js";
+
 function createBtnCategory() {
     console.log('function createBtnCategory');
     document.getElementById('vue_launch_category').innerHTML = 'search category';
@@ -37,9 +39,21 @@ function createBtnCategory() {
                 let domForVueLaunchCategory = '';
                 for (let index = 0; index < arrayOfCat2.length; index++) {
                     const element = arrayOfCat2[index].category;
-                    domForVueLaunchCategory = `${domForVueLaunchCategory}<button class="btn_cat">${element}</button>`;
+                    domForVueLaunchCategory = `${domForVueLaunchCategory}
+                    <button class="btn_cat"># ${element}</button>`;
                 }
                 document.getElementById('vue_launch_category').innerHTML = domForVueLaunchCategory;
+
+                let catBtn = document.querySelectorAll('.btn_cat');
+                // console.log('catBtn', catBtn);
+                catBtn.forEach(box => {
+                    box.addEventListener('click', () => {
+                        // console.log('click on cat btn');
+                        const label = box.innerHTML.replace('# ', '');
+                        console.log(label);
+                        jsonFetch2(label);
+                    });
+                });
             } else {
                 document.getElementById('vue_launch_category').innerHTML = 'no category found';
             }
