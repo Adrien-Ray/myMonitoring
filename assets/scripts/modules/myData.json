@@ -1,6 +1,6 @@
 {
     "category": [
-        "cat1", "cat2", "video"
+        "cat1", "cat2", "video", "cat3"
     ],
     "domain": [{
         "name": "wikipedia.org",
