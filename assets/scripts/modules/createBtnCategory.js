@@ -1,4 +1,5 @@
 import { jsonFetch2 } from "./jsonFetch.js";
+import { cleanReports } from "../main.js";
 
 function createBtnCategory() {
     console.log('function createBtnCategory');
@@ -49,6 +50,7 @@ function createBtnCategory() {
                 catBtn.forEach(box => {
                     box.addEventListener('click', () => {
                         // console.log('click on cat btn');
+                        cleanReports();
                         const label = box.innerHTML.replace('# ', '');
                         console.log(label);
                         jsonFetch2(label);
