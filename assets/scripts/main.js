@@ -14,8 +14,10 @@ document.getElementById('vue_launch_button_yupanki').addEventListener('click', (
 }); */
 document.getElementById('vue_reportReset').addEventListener('click', () => {
     document.getElementById('vue_report').style.display = 'none';
+    document.getElementById('vue_report').innerHTML = '';
     document.getElementById('vue_await').style.display = 'none';
     document.getElementById('vue_reportTime').style.display = 'none';
+    document.getElementById('vue_reportTime').innerHTML = '';
 });
 document.getElementById('enter_url').addEventListener('click', () => {
     document.getElementById('form_url').classList.toggle('vue');
