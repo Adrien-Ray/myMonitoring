@@ -50,4 +50,4 @@ long time or error codes are displayed in orange or red, the first line of the r
 
 ## 2022-11-10
 
-suppression propre des reports au reset reports.
+`c7fc0e367bc0b285e7dbdf05e10e38236565325c` suppression propre des reports au reset reports.
