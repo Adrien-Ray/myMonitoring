@@ -45,3 +45,9 @@ long time or error codes are displayed in orange or red, the first line of the r
 ## add data
 
  - read your data in `/assets/scripts/modules/myData.json`
+
+# updates
+
+## 2022-11-10
+
+suppression propre des reports au reset reports.
