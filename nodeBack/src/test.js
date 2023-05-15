@@ -23,6 +23,9 @@ async function test(returnThis, res) {
                 element.resTime.push(-1);
                 console.log(element.name);
                 console.log(404);
+
+                /* const resp = await axios.get(elementUrl)
+                console.log(resp); */
             }
         }
     }

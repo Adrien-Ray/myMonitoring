@@ -63,31 +63,17 @@ body #vue_await .waitAnimation {
   border-radius: 50%;
   width: 200px;
   aspect-ratio: 1/1;
-  -webkit-animation-name: waitAnimation;
-          animation-name: waitAnimation;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-name: waitAnimation;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
 }
 body #vue_await .waitAnimation > div {
   width: 100px;
   aspect-ratio: 1/1;
   background-color: var(--mainTitle);
   border-top-left-radius: 100%;
-}
-
-@-webkit-keyframes waitAnimation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes waitAnimation {
@@ -97,4 +83,4 @@ body #vue_await .waitAnimation > div {
   to {
     transform: rotate(360deg);
   }
-}
+}/*# sourceMappingURL=main.css.map */
